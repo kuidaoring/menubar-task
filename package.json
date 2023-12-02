@@ -13,6 +13,9 @@
     "type-check": "tsc -p ./renderer/tsconfig.json && tsc -p ./electron-src/tsconfig.json"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.19",
     "electron-is-dev": "^1.2.0",
     "electron-next": "^3.1.5",
     "react": "^18.2.0",
@@ -20,8 +23,8 @@
   },
   "devDependencies": {
     "@types/node": "^14.18.63",
-    "@types/react": "^16.14.52",
-    "@types/react-dom": "^16.9.24",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "electron": "^27.1.2",
     "electron-builder": "^24.9.1",
     "next": "latest",
