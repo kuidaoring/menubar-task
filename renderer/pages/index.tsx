@@ -28,7 +28,7 @@ const TaskPage = () => {
         <li>
           <input
             type="text"
-            className="w-full bg-transparent border-none focus:ring-0"
+            className="w-full bg-transparent border-none focus:ring-0 text-sm"
             placeholder="タスクを追加"
           />
         </li>

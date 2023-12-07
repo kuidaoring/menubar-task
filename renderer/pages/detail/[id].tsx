@@ -44,9 +44,9 @@ const DetailPage = () => {
         </li>
         <li>
           <textarea
-            className="border-none w-full bg-transparent"
+            className="border-none w-full bg-transparent text-sm focus:ring-0"
             placeholder="メモを追加"
-          ></textarea>
+          />
         </li>
       </ul>
     </div>
