@@ -1,7 +1,21 @@
 import { useRouter } from "next/router";
+import { ButtonHTMLAttributes, forwardRef, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const DetailPage = () => {
   const router = useRouter();
+  const [dueDate, setDueDate] = useState<Date | null>(null);
+  const CustomDateInput = forwardRef<
+    HTMLButtonElement,
+    ButtonHTMLAttributes<HTMLButtonElement>
+  >(({ value, onClick }, ref) => {
+    return (
+      <button onClick={onClick} ref={ref}>
+        {dueDate ? dueDate.toLocaleDateString() : "期限日を設定"}
+      </button>
+    );
+  });
   return (
     <div className="dark:text-white text-sm">
       <ul className="divide-y dark:divide-white/[0.3]">
@@ -32,7 +46,11 @@ const DetailPage = () => {
         <li className="py-1">
           <div className="flex flex-row">
             <p className="flex-none w-10 flex justify-center self-center">🗓</p>
-            <p className="self-center">2023/12/08</p>
+            <DatePicker
+              customInput={<CustomDateInput />}
+              onChange={(date) => setDueDate(date)}
+              popperPlacement="bottom"
+            />
           </div>
         </li>
         <li>
