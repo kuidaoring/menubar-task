@@ -1,8 +1,3 @@
-import {
-  CalendarIcon,
-  DocumentTextIcon,
-  RocketLaunchIcon,
-} from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const TaskPage = () => {
@@ -46,18 +41,9 @@ const TaskPage = () => {
                     とても長いテキストです。とても長いテキストです。
                   </p>
                   <p className="divide-x dark:divide-white/[0.3] dark:text-white/[0.7] text-xs">
-                    <span className="text-center px-1 self-center">
-                      <RocketLaunchIcon className="w-3 h-3 inline-block mx-1 mb-1" />
-                      今日の予定
-                    </span>
-                    <span className="text-center px-1">
-                      <CalendarIcon className="w-3 h-3 inline-block mx-1 mb-1" />
-                      2023/12/06
-                    </span>
-                    <span className="text-center px-1">
-                      <DocumentTextIcon className="w-3 h-3 inline-block mx-1 mb-1" />
-                      メモ
-                    </span>
+                    <span className="text-center px-1">🚀 今日の予定</span>
+                    <span className="text-center px-1">🗓 2023/12/06</span>
+                    <span className="text-center px-1">📝 メモ</span>
                   </p>
                 </div>
               </Link>
