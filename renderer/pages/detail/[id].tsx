@@ -1,16 +1,17 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 const DetailPage = () => {
+  const router = useRouter();
   return (
     <div className="dark:text-white text-sm">
       <ul className="divide-y dark:divide-white/[0.3]">
         <li className="flex flex-row py-1">
-          <Link
-            href="/"
+          <button
+            onClick={() => router.back()}
             className="flex-none w-10 flex justify-center self-center"
           >
             ↩️
-          </Link>
+          </button>
         </li>
         <li className="flex flex-row py-1">
           <div className="flex-none w-10 flex justify-center">
