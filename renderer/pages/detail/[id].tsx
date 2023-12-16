@@ -2,10 +2,14 @@ import { useRouter } from "next/router";
 import { ButtonHTMLAttributes, forwardRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { getTask } from "../../utils/TaskRepository";
+import { parseISO } from "date-fns";
 
-const DetailPage = () => {
+const DetailPage = ({ task }) => {
   const router = useRouter();
-  const [dueDate, setDueDate] = useState<Date | null>(null);
+  const [dueDate, setDueDate] = useState<Date | null>(
+    task.dueDate ? parseISO(task.dueDate) : null
+  );
   const CustomDateInput = forwardRef<
     HTMLButtonElement,
     ButtonHTMLAttributes<HTMLButtonElement>
@@ -31,11 +35,7 @@ const DetailPage = () => {
           <div className="flex-none w-10 flex justify-center">
             <input type="checkbox" className="rounded self-center" />
           </div>
-          <p className="flex-glow">
-            title とても長いテキストです。とても長いテキストです。 title
-            とても長いテキストです。とても長いテキストです。 title
-            とても長いテキストです。とても長いテキストです。
-          </p>
+          <p className="flex-glow">{task.title}</p>
         </li>
         <li className="py-1">
           <div className="flex flex-row">
@@ -65,3 +65,12 @@ const DetailPage = () => {
 };
 
 export default DetailPage;
+
+export const getServerSideProps = async (context) => {
+  const task = await getTask(context.params.id);
+  return {
+    props: {
+      task: task || null,
+    },
+  };
+};
