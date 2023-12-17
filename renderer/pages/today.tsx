@@ -7,10 +7,10 @@ import { useState } from "react";
 
 const TodayPage = ({ initTasks }) => {
   const [tasks, setTasks] = useState(initTasks);
-  const addTaskHandler = (title) => {
+  const addTaskHandler = (id, title) => {
     setTasks((prev) => {
       const newTask = {
-        id: prev.length + 1,
+        id: id,
         title: title,
         description: null,
         dueDate: null,

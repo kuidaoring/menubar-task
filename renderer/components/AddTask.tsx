@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid";
+
 const AddTask = ({ handler }) => {
   return (
     <form
@@ -8,7 +10,7 @@ const AddTask = ({ handler }) => {
         if (title.trim() === "") {
           return;
         }
-        handler(title);
+        handler(nanoid(), title);
         e.currentTarget.reset();
       }}
     >
