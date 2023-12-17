@@ -20,11 +20,17 @@ const TodayPage = ({ initTasks }) => {
       return [...prev, newTask];
     });
   };
+  const taskCheckHandler = (id, completed) => {
+    setTasks((prev) => {
+      prev.find((task) => task.id === id).completed = completed;
+      return [...prev];
+    });
+  };
   return (
     <div className="dark:text-white text-sm">
       <Tab active="today" />
       <AddTask handler={addTaskHandler} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} taskCheckHandler={taskCheckHandler} />
     </div>
   );
 };

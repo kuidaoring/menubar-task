@@ -8,8 +8,28 @@ import { parseISO } from "date-fns";
 const DetailPage = ({ task }) => {
   const router = useRouter();
   const [dueDate, setDueDate] = useState<Date | null>(
-    task.dueDate ? parseISO(task.dueDate) : null
+    task?.dueDate ? parseISO(task.dueDate) : null
   );
+  if (!task) {
+    return (
+      <div className="dark:text-white text-sm">
+        <ul className="divide-y dark:divide-white/[0.3]">
+          <li className="flex flex-row py-1">
+            <button
+              onClick={() => router.back()}
+              className="flex-none w-10 flex justify-center self-center"
+            >
+              ↩️
+            </button>
+          </li>
+          <li className="flex flex-row py-1">
+            <div className="flex-none w-10 flex justify-center"></div>
+            <p className="flex-glow">タスクが見つかりませんでした。</p>
+          </li>
+        </ul>
+      </div>
+    );
+  }
   const CustomDateInput = forwardRef<
     HTMLButtonElement,
     ButtonHTMLAttributes<HTMLButtonElement>

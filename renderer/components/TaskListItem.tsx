@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
 
-const TaskListItem = ({ task }) => {
+const TaskListItem = ({ task, handler }) => {
   return (
-    <li className="flex flex-row py-1">
+    <li className="flex flex-row py-1" key={task.id}>
       <div className="flex-none w-10 flex justify-center">
         <input
           type="checkbox"
           className="rounded self-center"
           checked={task.completed}
+          onChange={(e) => handler(task.id, !task.completed)}
         />
       </div>
       <Link href={`/detail/${task.id}`}>
