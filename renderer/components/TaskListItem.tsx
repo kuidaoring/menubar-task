@@ -5,7 +5,11 @@ const TaskListItem = ({ task }) => {
   return (
     <li className="flex flex-row py-1">
       <div className="flex-none w-10 flex justify-center">
-        <input type="checkbox" className="rounded self-center" />
+        <input
+          type="checkbox"
+          className="rounded self-center"
+          checked={task.completed}
+        />
       </div>
       <Link href={`/detail/${task.id}`}>
         <div className="flex-glow">

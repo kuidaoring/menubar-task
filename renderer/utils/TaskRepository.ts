@@ -7,6 +7,7 @@ const tasks = [
     description: "Description 1",
     dueDate: parse("2023/12/17", "yyyy/MM/dd", new Date()).toISOString(),
     isToday: true,
+    completed: false,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const tasks = [
     description: "Description 2",
     dueDate: parse("2023/12/18", "yyyy/MM/dd", new Date()).toISOString(),
     isToday: false,
+    completed: true,
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ const tasks = [
     description: "Description 3",
     dueDate: parse("2023/12/19", "yyyy/MM/dd", new Date()).toISOString(),
     isToday: true,
+    completed: false,
   },
   {
     id: 4,
@@ -28,6 +31,7 @@ const tasks = [
     description: "Description 4",
     dueDate: parse("2023/12/20", "yyyy/MM/dd", new Date()).toISOString(),
     isToday: false,
+    completed: true,
   },
   {
     id: 5,
@@ -35,6 +39,7 @@ const tasks = [
     description: "Description 5",
     dueDate: null,
     isToday: false,
+    completed: true,
   },
 ];
 
